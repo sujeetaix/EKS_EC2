@@ -1,11 +1,11 @@
 resource "aws_route_table" "private" {
-  count = length(var.private_subnet_cidr_blocks)
+  # count = length(var.private_subnet_cidr_blocks)
 
   vpc_id = aws_vpc.main.id
 
   tags = merge(
     {
-      Name        = join("-", [var.vpc_name, "pri-rtb", var.availability_zones_ref[count.index]]),
+      Name        = join("-", [var.vpc_name, "pri-rtb", var.availability_zones_ref[0]]),
       Project     = var.project,
       Environment = var.environment
     },
