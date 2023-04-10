@@ -23,7 +23,7 @@ resource "aws_internet_gateway" "default" {
 }
 
 resource "aws_eip" "nat" {
-  count = length(var.public_subnet_cidr_blocks)
+  # count = length(var.public_subnet_cidr_blocks)
   vpc = true
 }
 
